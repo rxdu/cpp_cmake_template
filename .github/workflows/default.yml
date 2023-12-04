@@ -1,0 +1,40 @@
+name: default
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+      - '!release*'
+      - '!experiment-*'
+  pull_request:
+    branches:
+      - 'main'
+      - 'devel'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, ubuntu-22.04 ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Clean up workspace
+        uses: westonrobot-dev/action-cleanup@master
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common
+      - name: Build library
+        run: |
+          mkdir build && cd build 
+          cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DASAN_CHECK=OFF .. 
+          cmake --build . && cpack
+      - name: Run unit test
+        run: |
+          cd ${GITHUB_WORKSPACE}/build
+          ctest

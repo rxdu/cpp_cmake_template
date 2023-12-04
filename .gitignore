@@ -1,3 +1,29 @@
+# Temp files
+*~
+*/~
+*/*.*~
+*.m~
+*.DS_Store
+
+# VS Code
+.vscode
+**/build
+
+# CLion
+.idea/
+cmake-build-debug
+cmake-build-release/
+
+# Vim
+tags
+*/tags
+*.swp
+*/*.swp
+
+# Python
+*.pyc
+__pycache__
+
 # Prerequisites
 *.d
 

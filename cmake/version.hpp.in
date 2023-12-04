@@ -1,0 +1,19 @@
+/**
+ * @file version.hpp.in
+ * @date 04-12-2023
+ * @brief
+ *
+ * @copyright Copyright (c) 2023 Ruixiang Du (rdu)
+ */
+
+#ifndef MY_PROJECT_VERSION_HPP
+#define MY_PROJECT_VERSION_HPP
+
+#define PROJECT_NAME "@PROJECT_NAME@"
+
+#define PROJECT_VERSION_STRING "@PROJECT_VERSION@"
+#define PROJECT_VERSION_MAJOR "@PROJECT_VERSION_MAJOR@"
+#define PROJECT_VERSION_MINOR "@PROJECT_VERSION_MINOR@"
+#define PTOJECT_VERSION_PATCH "@PROJECT_VERSION_PATCH@"
+
+#endif /* MY_PROJECT_VERSION_HPP */

@@ -1,0 +1,15 @@
+include(CMakeFindDependencyMacro)
+
+# Capturing values from configure (optional)
+# set(my-config-var @my-config-var@)
+
+# Same syntax as find_package
+find_dependency(Threads REQUIRED)
+
+// find_package(PkgConfig REQUIRED)
+// pkg_check_modules(LelyIO QUIET IMPORTED_TARGET liblely-io2)
+
+# Any extra setup
+
+# Add the targets file
+include("${CMAKE_CURRENT_LIST_DIR}/my_projectTargets.cmake")
