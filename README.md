@@ -1,1 +1,1 @@
-# cpp_cmake_template
+# C++ CMake Project Template
