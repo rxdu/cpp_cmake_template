@@ -20,11 +20,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Clean up workspace
-        uses: westonrobot-dev/action-cleanup@master
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
+        uses: rtCamp/action-cleanup@master
+      - name: Chown user
+        run: |
+          sudo chown -R $USER:$USER $GITHUB_WORKSPACE
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           sudo apt-get update
