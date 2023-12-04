@@ -20,9 +20,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Clean up workspace
-        uses: westonrobot-dev/action-cleanup@master
-      - name: Checkout
-        uses: actions/checkout@v4
+        uses: rtCamp/action-cleanup@master
+      - uses: actions/checkout@v3
       - name: Install dependencies
         run: |
           sudo apt-get update
