@@ -21,7 +21,10 @@ jobs:
     steps:
       - name: Clean up workspace
         uses: rtCamp/action-cleanup@master
-      - uses: actions/checkout@v3
+      - name: Chown user
+        run: |
+          sudo chown -R $USER:$USER $GITHUB_WORKSPACE
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           sudo apt-get update
