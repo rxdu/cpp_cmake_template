@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12.0)
+cmake_minimum_required(VERSION 3.16.0)
 project(my_project VERSION 0.1.0)
 
 find_program(CCACHE_PROGRAM ccache)
@@ -45,15 +45,8 @@ set(USER_CMAKE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 list(APPEND CMAKE_MODULE_PATH "${USER_CMAKE_PATH}/modules")
 list(APPEND CMAKE_PREFIX_PATH "/usr/lib/${CMAKE_SYSTEM_PROCESSOR}-linux-gnu/cmake")
 
-# # Add external dependencies
-set(CONAN_CMAKE_SETUP ${CMAKE_BINARY_DIR}/conan_paths.cmake)
-
-if (EXISTS ${CONAN_CMAKE_SETUP} AND NOT IS_DIRECTORY ${CONAN_CMAKE_SETUP})
-    include(${CONAN_CMAKE_SETUP})
-endif ()
-
-# # Set compiler to use c++ 14 features
-set(CMAKE_CXX_STANDARD 14)
+# # Set compiler to use c++ 17 features
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
